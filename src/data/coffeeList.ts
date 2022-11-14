@@ -86,28 +86,28 @@ export const coffeeList: ICoffeeList[] = [
     price: 9.90
   },
   {
-    id: 10,
+    id: 11,
     type:  [CoffeeType.Especial, CoffeeType.Alcoolico, CoffeeType.Gelado],
     name: "Cubano",
     description: "Drink gelado de café expresso com rum, creme de leite e hortelã",
     price: 9.90
   },
   {
-    id: 11,
+    id: 12,
     type:  [CoffeeType.Especial],
     name: "Havaiano",
     description: "Bebida adocicada preparada com café e leite de coco",
     price: 9.90
   },
   {
-    id: 12,
+    id: 13,
     type:  [CoffeeType.Especial],
     name: "Árabe",
     description: "Bebida preparada com grãos de café árabe e especiarias",
     price: 9.90
   },
   {
-    id: 13,
+    id: 14,
     type:  [CoffeeType.Especial, CoffeeType.Alcoolico],
     name: "Irlandês",
     description: "Bebida a base de café, uísque irlandês, açúcar e chantilly",

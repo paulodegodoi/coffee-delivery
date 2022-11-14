@@ -15,9 +15,9 @@ export function Header() {
           />
           Osasco, SP
         </p>
-        <div className="shoppingCart">
+        <button className="shoppingCart">
           <ShoppingCart size={22} weight="fill" />
-        </div>
+        </button>
       </Info>
     </Container>
   )

@@ -12,7 +12,7 @@ export const Info = styled.div`
   align-items: center;
   gap: 10px;
 
-  div, p, svg {
+  p, svg {
     display: flex;
     align-items: center;
     border-radius: 7px;
@@ -32,9 +32,6 @@ export const Info = styled.div`
   }
 
   .shoppingCart {
-    justify-content: center;
-    width: 40px;
-    height: 40px;
     color: ${props => props.theme.colors.yellow_dark};
     background-color: ${props => props.theme.colors.yellow_light};
   }

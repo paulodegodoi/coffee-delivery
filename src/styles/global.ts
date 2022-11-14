@@ -18,6 +18,18 @@ export default createGlobalStyle`
     font-family: 'Roboto', sans-serif;
   }
 
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
   @media (min-width: 800px) {
     body {
       padding: 0 150px 3rem 150px;

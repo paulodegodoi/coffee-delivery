@@ -24,7 +24,7 @@ export const Coffee = styled.div`
   height: 310px;
   background-color: ${props => props.theme.colors.base_card};
   border-radius: 7px 40px 7px 40px;
-  padding: 1.5rem;
+  padding: 1.2rem;
 `
 
 export const Image = styled.img`
