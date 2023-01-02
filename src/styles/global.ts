@@ -8,14 +8,12 @@ export default createGlobalStyle`
   }
 
   body {
-    display: flex;
-    justify-content: center;
-    margin: auto;
     background-color: ${props => props.theme.colors.background};
-    max-width: 1440px;
     font-size: 14px;
     color: ${props => props.theme.colors.text};
     font-family: 'Roboto', sans-serif;
+    max-width: 1440px;
+    margin: auto;
   }
 
   button {

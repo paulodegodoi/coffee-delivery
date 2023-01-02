@@ -77,8 +77,32 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     flex-direction: column;
+    padding: 0 1rem;
+
+    .slogan {
+      h2 {
+        text-align: center;
+        font-size: 2.5rem;
+      }
+
+      p {
+        margin: 1rem 0;
+        text-align: center;
+      }
+
+      .description {
+        gap: 0;
+        flex-direction: column;
+        margin: auto;
+
+        div > p {
+          margin: 0;
+          margin-top: 1rem;
+        }
+      }
+    }
 
     .imageSite {
       width: auto;

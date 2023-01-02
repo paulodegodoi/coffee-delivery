@@ -5,6 +5,10 @@ export const Container = styled.div`
     font-family: 'Baloo 2', cursive;
     font-size: 2rem;
     color: #272221;
+
+    @media (max-width: 800px) {
+      text-align: center;
+    }
   }
 `
 
@@ -14,6 +18,10 @@ export const CoffeeListContainer = styled.div`
   flex-wrap: wrap;
   margin-top: 2.5rem;
   gap: 35px;
+
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
 `
 
 export const Coffee = styled.div`
@@ -87,9 +95,14 @@ export const CartAmount = styled.div`
   height: 100%;
   border-radius: 7px;
   background-color: ${props => props.theme.colors.base_input};
+  transition: .3s;
 
-  svg {
+  .buttonAmount {
     color: ${props => props.theme.colors.purple};
+
+    &:hover {
+      color: ${props => props.theme.colors.purple_dark};
+    }
   }
 `
 
@@ -113,6 +126,11 @@ export const CartContainer = styled.div`
     padding: 8px;
     border-radius: 7px;
     color: white;
-    background-color: ${props => props.theme.colors.purple_dark}
+    background-color: ${props => props.theme.colors.purple_dark};
+    transition: .3s;
+
+    &:hover {
+      background-color: ${props => props.theme.colors.purple};
+    }
   }
 `

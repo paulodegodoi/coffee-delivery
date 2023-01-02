@@ -3,15 +3,16 @@ import colors from "./styles/themes/colors"
 import GlobalStyles from "./styles/global"
 import { Header } from "./components/Header"
 import { Main } from "./components/Main"
+import { useState } from "react"
 
 function App() {
+  let [units, setUnits] = useState(0)
+
   return (
     <ThemeProvider theme={colors}>
-      <div>
-        <GlobalStyles />
-        <Header />
-        <Main />
-      </div>
+      <GlobalStyles />
+      <Header units={units} />
+      <Main units={units} setUnits={setUnits} />
     </ThemeProvider>
   )
 }
