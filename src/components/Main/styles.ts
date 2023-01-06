@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 export const Container = styled.main`
-  margin-top: 6rem;
   display: flex;
   flex-direction: column;
   gap: 100px;

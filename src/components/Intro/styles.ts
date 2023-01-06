@@ -9,17 +9,16 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
     max-width: 588px;
-    padding: .7rem 0;
+    padding: 0.7rem 0;
 
     h2 {
-    font-family: 'Baloo 2', cursive;
-    font-size: 3rem;
-    color: #272221;
-    line-height: 1.2;
+      font-family: "Baloo 2", cursive;
+      font-size: 3rem;
+      color: #272221;
+      line-height: 1.2;
     }
 
     p {
-      
       font-size: 1.3rem;
       font-weight: 400;
       color: #403937;
@@ -46,22 +45,22 @@ export const Container = styled.div`
 
         .shoppingCart {
           padding: 8px;
-          background-color: ${props => props.theme.colors.yellow_dark};
+          background-color: ${(props) => props.theme.colors.yellow_dark};
         }
 
         .timer {
           padding: 8px;
-          background-color: ${props => props.theme.colors.yellow};
+          background-color: ${(props) => props.theme.colors.yellow};
         }
 
         .box {
           padding: 8px;
-          background-color: ${props => props.theme.colors.text};
+          background-color: ${(props) => props.theme.colors.text};
         }
 
         .coffee {
           padding: 8px;
-          background-color: ${props => props.theme.colors.purple};
+          background-color: ${(props) => props.theme.colors.purple};
         }
       }
     }
@@ -70,24 +69,27 @@ export const Container = styled.div`
   .imageSite {
     display: flex;
     justify-content: center;
-    width: auto;
+    min-width: 340px;
 
     img {
       width: 100%;
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 1150px) {
     flex-direction: column;
     padding: 0 1rem;
 
     .slogan {
+      margin: auto;
+
       h2 {
         text-align: center;
-        font-size: 2.5rem;
+        font-size: 2.2rem;
       }
 
       p {
+        font-size: 1rem;
         margin: 1rem 0;
         text-align: center;
       }
@@ -98,6 +100,7 @@ export const Container = styled.div`
         margin: auto;
 
         div > p {
+          font-size: 0.8rem;
           margin: 0;
           margin-top: 1rem;
         }
@@ -108,7 +111,7 @@ export const Container = styled.div`
       width: auto;
 
       img {
-        width: 80%;
+        width: 50%;
       }
     }
   }
