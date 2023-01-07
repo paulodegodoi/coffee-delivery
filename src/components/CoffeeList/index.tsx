@@ -1,5 +1,5 @@
 import { Minus, Plus, ShoppingCart } from "phosphor-react"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { coffeeList, ICoffeeList } from "../../data/coffeeList"
 
 import {
@@ -27,11 +27,9 @@ export function CoffeeList({ units, setUnits }: ICoffeeListProps) {
     if (localStorage.hasOwnProperty("coffeeList")) {
       let items = JSON.parse(localStorage.getItem("coffeeList")!)
       let units = 0
-      items.forEach((item) => {
-        units += item.units
-        console.log(units)
+      items.forEach((item: ICoffeeList) => {
+        units += item.units!
       })
-
       setUnits(units)
     }
   }, [])

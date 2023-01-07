@@ -1,13 +1,13 @@
-import { CoffeeList } from "../CoffeeList"
-import { Intro } from "../Intro"
+import { CoffeeList } from "../../CoffeeList"
+import { Intro } from "../../Intro"
 import { Container } from "./styles"
 
-interface IMain {
+interface IHome {
   units: number
   setUnits: (value: number) => void
 }
 
-export function Main({ units, setUnits }: IMain) {
+export function Home({ units, setUnits }: IHome) {
   return (
     <Container>
       <Intro />

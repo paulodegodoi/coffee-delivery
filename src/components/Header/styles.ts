@@ -12,7 +12,8 @@ export const Container = styled.header`
   background-color: ${(props) => props.theme.colors.background};
 
   @media (max-width: 800px) {
-    padding: 2rem 1rem;
+    padding: 1rem 0;
+    height: 70px;
   }
 `
 

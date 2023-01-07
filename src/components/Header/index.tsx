@@ -1,6 +1,7 @@
 import { Container, Info } from "./styles"
 import Logo from "../../assets/logo.png"
 import { MapPin, ShoppingCart } from "phosphor-react"
+import { Link } from "react-router-dom"
 
 interface IHeader {
   units: number
@@ -9,16 +10,20 @@ interface IHeader {
 export function Header({ units }: IHeader) {
   return (
     <Container>
-      <img src={Logo} alt="logo" />
+      <Link to="/">
+        <img src={Logo} alt="logo" />
+      </Link>
       <Info>
         <p>
           <MapPin size={22} weight="fill" className="mapPin" />
           Osasco, SP
         </p>
-        <button className="shoppingCart">
-          <ShoppingCart size={22} weight="fill" />
-          <span className="amount">{units > 0 && units}</span>
-        </button>
+        <Link to="/checkout">
+          <button className="shoppingCart">
+            <ShoppingCart size={22} weight="fill" />
+            {units > 0 && <span className="amount">{units}</span>}
+          </button>
+        </Link>
       </Info>
     </Container>
   )
