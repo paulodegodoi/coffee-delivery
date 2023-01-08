@@ -2,12 +2,26 @@ import { Container, Info } from "./styles"
 import Logo from "../../assets/logo.png"
 import { MapPin, ShoppingCart } from "phosphor-react"
 import { Link } from "react-router-dom"
+import { useEffect } from "react"
+import { ICoffeeList } from "../../data/coffeeList"
 
 interface IHeader {
   units: number
+  setUnits: (n: number) => void
 }
 
-export function Header({ units }: IHeader) {
+export function Header({ units, setUnits }: IHeader) {
+  useEffect(() => {
+    if (localStorage.hasOwnProperty("coffeeList")) {
+      let items = JSON.parse(localStorage.getItem("coffeeList")!)
+      let units = 0
+      items.forEach((item: ICoffeeList) => {
+        units += item.units!
+      })
+      setUnits(units)
+    }
+  }, [])
+
   return (
     <Container>
       <Link to="/">

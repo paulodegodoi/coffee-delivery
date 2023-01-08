@@ -2,14 +2,24 @@ import {
   FormContainer,
   InputLarge,
   InputSmall,
+  MainContainer,
   PaymentContainer,
   PaymentType,
 } from "./styles"
-import { CurrencyDollar, MapPin } from "phosphor-react"
+import { CreditCard, CurrencyDollar, MapPin, Money } from "phosphor-react"
+import { useState } from "react"
 
 export default function Checkout() {
+  const [active, setActive] = useState("")
+
+  function handleActiveButton(btn: EventTarget) {
+    const button = btn as HTMLElement
+    setActive(button.id)
+  }
+
   return (
-    <div>
+    <MainContainer>
+      <h3>Complete seu pedido</h3>
       <FormContainer>
         <div>
           <MapPin size={22} className="mapPin" />
@@ -31,17 +41,42 @@ export default function Checkout() {
         </div>
       </FormContainer>
       <PaymentContainer>
-        <CurrencyDollar size={22} />
-        <p>Pagamento</p>
-        <span>
-          O pagamento é feito na entrega. Escolha a forma que deseja pagar.
-        </span>
         <div>
-          <PaymentType>CARTÃO DE CRÉDITO</PaymentType>
-          <PaymentType>CARTÃO DE DÉBITO</PaymentType>
-          <PaymentType>DINHEIRO</PaymentType>
+          <CurrencyDollar size={22} />
+          <p>Pagamento</p>
+        </div>
+        <div>
+          <span>
+            O pagamento é feito na entrega. Escolha a forma que deseja pagar.
+          </span>
+        </div>
+        <div className="paymentTypeContainer">
+          <PaymentType
+            id="creditCard"
+            className={active == "creditCard" ? "active" : ""}
+            onClick={(e) => handleActiveButton(e.target)}
+          >
+            <CreditCard size={15} />
+            CARTÃO DE CRÉDITO
+          </PaymentType>
+          <PaymentType
+            id="debitCard"
+            className={active == "debitCard" ? "active" : ""}
+            onClick={(e) => handleActiveButton(e.target)}
+          >
+            <CreditCard size={15} />
+            <span>CARTÃO DE DÉBITO</span>
+          </PaymentType>
+          <PaymentType
+            id="boleto"
+            className={active == "boleto" ? "active" : ""}
+            onClick={(e) => handleActiveButton(e.target)}
+          >
+            <Money size={15} />
+            <span>DINHEIRO</span>
+          </PaymentType>
         </div>
       </PaymentContainer>
-    </div>
+    </MainContainer>
   )
 }

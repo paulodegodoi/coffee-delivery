@@ -23,17 +23,6 @@ interface ICoffeeListProps {
 }
 
 export function CoffeeList({ units, setUnits }: ICoffeeListProps) {
-  useEffect(() => {
-    if (localStorage.hasOwnProperty("coffeeList")) {
-      let items = JSON.parse(localStorage.getItem("coffeeList")!)
-      let units = 0
-      items.forEach((item: ICoffeeList) => {
-        units += item.units!
-      })
-      setUnits(units)
-    }
-  }, [])
-
   function formatString(string: string) {
     string = string.toLocaleLowerCase()
     string = string.replace(/ /g, "_")
