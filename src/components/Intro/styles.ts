@@ -1,115 +1,113 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: center;
 
-  .slogan {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 588px;
-    padding: .7rem 0;
+	.slogan {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		max-width: 588px;
+		padding: 0.7rem 0;
 
-    h2 {
-    font-family: 'Baloo 2', cursive;
-    font-size: 3rem;
-    color: #272221;
-    line-height: 1.2;
-    }
+		h2 {
+			font-family: "Baloo 2", cursive;
+			font-size: 3rem;
+			color: ${(props) => props.theme.colors.yellow};
+			line-height: 1.2;
+		}
 
-    p {
-      
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: #403937;
-    }
+		p {
+			font-size: 1.3rem;
+			font-weight: 400;
+			color: ${(props) => props.theme.colors.yellow_light};
+		}
 
-    .description {
-      margin-top: 1rem;
-      display: flex;
-      gap: 35px;
+		.description {
+			margin-top: 1rem;
+			display: flex;
+			gap: 35px;
 
-      p {
-        margin: 1rem 0;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 1rem;
+			p {
+				margin: 1rem 0;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				font-size: 1rem;
 
-        svg {
-          border-radius: 50%;
-          width: 32px;
-          height: 32px;
-          color: #fff;
-        }
+				svg {
+					border-radius: 50%;
+					width: 32px;
+					height: 32px;
+					color: #fff;
+				}
 
-        .shoppingCart {
-          padding: 8px;
-          background-color: ${props => props.theme.colors.yellow_dark};
-        }
+				.shoppingCart {
+					padding: 8px;
+					background-color: ${(props) =>
+						props.theme.colors.yellow_dark};
+				}
 
-        .timer {
-          padding: 8px;
-          background-color: ${props => props.theme.colors.yellow};
-        }
+				.timer {
+					padding: 8px;
+					background-color: ${(props) => props.theme.colors.yellow};
+				}
 
-        .box {
-          padding: 8px;
-          background-color: ${props => props.theme.colors.text};
-        }
+				.box {
+					padding: 8px;
+					background-color: ${(props) => props.theme.colors.text};
+				}
 
-        .coffee {
-          padding: 8px;
-          background-color: ${props => props.theme.colors.purple};
-        }
-      }
-    }
-  }
+				.coffee {
+					padding: 8px;
+					background-color: ${(props) => props.theme.colors.green};
+				}
+			}
+		}
+	}
 
-  .imageSite {
-    display: flex;
-    justify-content: center;
-    width: auto;
+	.imageSite {
+		display: flex;
+		justify-content: center;
+		width: auto;
 
-    img {
-      width: 100%;
-    }
-  }
+		img {
+			width: 100%;
+		}
+	}
 
-  @media (max-width: 800px) {
-    flex-direction: column;
-    padding: 0 1rem;
+	@media (max-width: 1200px) {
+		.imageSite {
+			display: none;
+		}
+	}
 
-    .slogan {
-      h2 {
-        text-align: center;
-        font-size: 2.5rem;
-      }
+	@media (max-width: 800px) {
+		flex-direction: column;
+		padding: 0 1rem;
 
-      p {
-        margin: 1rem 0;
-        text-align: center;
-      }
+		.slogan {
+			h2 {
+				text-align: center;
+				font-size: 2.5rem;
+			}
 
-      .description {
-        gap: 0;
-        flex-direction: column;
-        margin: auto;
+			p {
+				margin: 1rem 0;
+				text-align: center;
+			}
 
-        div > p {
-          margin: 0;
-          margin-top: 1rem;
-        }
-      }
-    }
+			.description {
+				gap: 0;
+				flex-direction: column;
+				margin: auto;
 
-    .imageSite {
-      width: auto;
-
-      img {
-        width: 80%;
-      }
-    }
-  }
+				div > p {
+					margin: 0;
+					margin-top: 1rem;
+				}
+			}
+		}
+	}
 `

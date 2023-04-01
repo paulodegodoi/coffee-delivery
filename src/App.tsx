@@ -2,19 +2,26 @@ import { ThemeProvider } from "styled-components"
 import colors from "./styles/themes/colors"
 import GlobalStyles from "./styles/global"
 import { Header } from "./components/Header"
-import { Main } from "./components/Main"
+import { Main } from "./pages/Main"
 import { useState } from "react"
+import { BrowserRouter as Router } from "react-router-dom"
+import Routes from "./routes"
+import CartItemsContext from "./contexts/CartItemsContext"
 
 function App() {
-  let [units, setUnits] = useState(0)
+	const [units, setUnits] = useState(0)
 
-  return (
-    <ThemeProvider theme={colors}>
-      <GlobalStyles />
-      <Header units={units} />
-      <Main units={units} setUnits={setUnits} />
-    </ThemeProvider>
-  )
+	return (
+		<CartItemsContext.Provider value={{ units, setUnits }}>
+			<ThemeProvider theme={colors}>
+				<GlobalStyles />
+				<Router>
+					<Header />
+					<Routes />
+				</Router>
+			</ThemeProvider>
+		</CartItemsContext.Provider>
+	)
 }
 
 export default App
