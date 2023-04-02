@@ -1,18 +1,21 @@
+import { useState } from "react"
+import Routes from "./routes"
+import CartItemsContext, {
+	CartItemsContextProps,
+	initialValue,
+} from "./contexts/CartItemsContext"
 import { ThemeProvider } from "styled-components"
 import colors from "./styles/themes/colors"
 import GlobalStyles from "./styles/global"
 import { Header } from "./components/Header"
-import { Main } from "./pages/Main"
-import { useState } from "react"
 import { BrowserRouter as Router } from "react-router-dom"
-import Routes from "./routes"
-import CartItemsContext from "./contexts/CartItemsContext"
+import { coffee } from "./interfaces/ICoffee"
 
 function App() {
-	const [units, setUnits] = useState(0)
+	const [coffeeList, setCoffeeList] = useState<coffee[]>([])
 
 	return (
-		<CartItemsContext.Provider value={{ units, setUnits }}>
+		<CartItemsContext.Provider value={{ coffeeList, setCoffeeList }}>
 			<ThemeProvider theme={colors}>
 				<GlobalStyles />
 				<Router>

@@ -5,14 +5,11 @@ import { Checkout } from "./pages/Checkout"
 import { Main } from "./pages/Main"
 
 export default function DefaultRoutes() {
-	const { units, setUnits } = useContext(CartItemsContext)
+	//const { units, setUnits } = useContext(CartItemsContext)
 
 	return (
 		<Routes>
-			<Route
-				path="/"
-				element={<Main units={units} setUnits={setUnits} />}
-			/>
+			<Route path="/" element={<Main />} />
 			<Route path="checkout" element={<Checkout />} />
 		</Routes>
 	)

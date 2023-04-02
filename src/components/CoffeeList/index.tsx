@@ -1,6 +1,6 @@
 import { Minus, Plus, ShoppingCart } from "phosphor-react"
-import { useEffect, useState } from "react"
-import { coffeeList, ICoffeeList } from "../../data/coffeeList"
+import { useContext, useEffect, useState } from "react"
+import { dataCoffeeList } from "../../data/coffeeList"
 
 import {
 	CartAmount,
@@ -16,24 +16,28 @@ import {
 	Type,
 	TypeContainer,
 } from "./styles"
+import { ICoffeeList, coffee } from "../../interfaces/ICoffee"
+import CartItemsContext from "../../contexts/CartItemsContext"
 
-interface ICoffeeListProps {
-	units: number
-	setUnits: (value: number) => void
-}
+// interface ICoffeeListProps {
+// 	units: number
+// 	setUnits: (value: number) => void
+// }
 
-export function CoffeeList({ units, setUnits }: ICoffeeListProps) {
-	useEffect(() => {
-		if (localStorage.hasOwnProperty("coffeeList")) {
-			let items = JSON.parse(localStorage.getItem("coffeeList")!)
-			let units = 0
-			items.forEach((item) => {
-				units += item.units
-			})
+export function CoffeeList() {
+	// useEffect(() => {
+	// 	if (localStorage.hasOwnProperty("coffeeList")) {
+	// 		let items = JSON.parse(localStorage.getItem("coffeeList")!)
+	// 		let units = 0
+	// 		items.forEach((item) => {
+	// 			units += item.units
+	// 		})
 
-			setUnits(units)
-		}
-	}, [])
+	// 		setUnits(units)
+	// 	}
+	// }, [])
+
+	const { coffeeList, setCoffeeList } = useContext(CartItemsContext)
 
 	function formatString(string: string) {
 		string = string.toLocaleLowerCase()
@@ -64,22 +68,34 @@ export function CoffeeList({ units, setUnits }: ICoffeeListProps) {
 	function handleAddToCart(coffee: ICoffeeList) {
 		const input = document.getElementById(`coffeeAmount_${coffee.id}`)
 		const coffeeAmount = parseInt((input as HTMLInputElement).value)
-		const _coffee = coffee
-		_coffee.units = coffeeAmount
-		setUnits((units += coffeeAmount))
-		let coffeeList = []
-		if (localStorage.hasOwnProperty("coffeeList")) {
-			coffeeList = JSON.parse(localStorage.getItem("coffeeList")!)
+		const _coffee = {
+			coffeeId: coffee.id,
+			units: coffeeAmount,
 		}
-		coffeeList.push(_coffee)
-		localStorage.setItem("coffeeList", JSON.stringify(coffeeList))
+
+		let id = coffeeList.findIndex((c) => c.coffeeId == _coffee.coffeeId)
+		console.log(id)
+
+		if (id != -1) {
+			let updatedCoffeeList = coffeeList
+			updatedCoffeeList[id].units += _coffee.units
+			console.log(updatedCoffeeList)
+			setCoffeeList(updatedCoffeeList)
+		} else setCoffeeList([...coffeeList, _coffee])
+		// setUnits((units += coffeeAmount))
+		// let coffeeList = []
+		// if (localStorage.hasOwnProperty("coffeeList")) {
+		// 	coffeeList = JSON.parse(localStorage.getItem("coffeeList")!)
+		// }
+		// coffeeList.push(_coffee)
+		// localStorage.setItem("coffeeList", JSON.stringify(coffeeList))
 	}
 
 	return (
 		<Container>
 			<h3>Nossos cafés</h3>
 			<CoffeeListContainer>
-				{coffeeList.map((coffee) => (
+				{dataCoffeeList.map((coffee) => (
 					<Coffee key={coffee.id}>
 						<Image
 							src={`src/assets/coffees/${formatString(
@@ -112,9 +128,9 @@ export function CoffeeList({ units, setUnits }: ICoffeeListProps) {
 									<InputAmount
 										id={`coffeeAmount_${coffee.id}`}
 										defaultValue={1}
-										onChange={(e) =>
-											setUnits(parseInt(e.target.value))
-										}
+										// onChange={(e) =>
+										// 	setUnits(parseInt(e.target.value))
+										// }
 										readOnly
 									/>
 

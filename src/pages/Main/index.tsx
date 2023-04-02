@@ -1,13 +1,12 @@
+import { useContext } from "react"
 import { CoffeeList } from "../../components/CoffeeList"
 import { Intro } from "../../components/Intro"
 import { Container } from "./styles"
+import CartItemsContext from "../../contexts/CartItemsContext"
 
-interface IMain {
-	units: number
-	setUnits: (value: number) => void
-}
+export function Main() {
+	const { units, setUnits } = useContext(CartItemsContext)
 
-export function Main({ units, setUnits }: IMain) {
 	return (
 		<Container>
 			<Intro />

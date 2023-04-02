@@ -3,11 +3,24 @@ import Logo from "../../assets/logo.png"
 import { MapPin, ShoppingCart } from "phosphor-react"
 
 import CartItemsContext from "../../contexts/CartItemsContext"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 export function Header() {
-	const { units } = useContext(CartItemsContext)
+	let amount = 0
+
+	const { coffeeList } = useContext(CartItemsContext)
+	const [itemsAmount, setItemsAmount] = useState(0)
+
+	coffeeList.forEach((c) => {
+		amount += c.units
+	})
+
+	useEffect(() => {
+		setItemsAmount(amount)
+	}, [amount])
+
+	console.log(coffeeList)
 
 	return (
 		<Container>
@@ -23,7 +36,11 @@ export function Header() {
 				<Link to="/checkout">
 					<button className="shoppingCart">
 						<ShoppingCart size={22} weight="fill" />
-						<span className="amount">{units > 0 && units}</span>
+						{itemsAmount > 0 && (
+							<span className="amount">
+								{itemsAmount > 0 && itemsAmount}
+							</span>
+						)}
 					</button>
 				</Link>
 			</Info>
