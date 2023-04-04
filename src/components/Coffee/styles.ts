@@ -23,6 +23,10 @@ export const CoffeeListContainer = styled.div`
 	@media (max-width: 800px) {
 		justify-content: center;
 	}
+
+	.checkoutLayout {
+		flex-direction: row;
+	}
 `
 
 export const Coffee = styled.div`
@@ -58,7 +62,6 @@ export const Name = styled.h4`
 	margin-top: 0.7rem;
 	font-family: "Baloo 2", cursive;
 	font-size: 1.2rem;
-	font-weight: bold;
 	color: ${(props) => props.theme.colors.background};
 `
 

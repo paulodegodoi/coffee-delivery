@@ -5,11 +5,11 @@ export type coffee = {
 
 export interface ICoffeeList {
 	id: number
-	type: CoffeeType[]
+	type?: CoffeeType[]
 	name: string
-	description: string
+	description?: string
 	price: number
-	units?: number
+	units: number
 }
 
 export enum CoffeeType {

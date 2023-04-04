@@ -8,12 +8,13 @@ export default createGlobalStyle`
   }
 
   body {
-    background-color: ${props => props.theme.colors.background};
+    background-color: ${(props) => props.theme.colors.background};
     font-size: 14px;
-    color: ${props => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.text};
     font-family: 'Roboto', sans-serif;
     max-width: 1440px;
     margin: auto;
+    padding: 0 150px 3rem 150px;
   }
 
   button {
@@ -28,9 +29,9 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
-  @media (min-width: 800px) {
+  @media (max-width: 1200px) {
     body {
-      padding: 0 150px 3rem 150px;
+      padding: 0 2rem;
     }
   }
 `

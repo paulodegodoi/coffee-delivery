@@ -69,11 +69,13 @@ export function CoffeeList() {
 		const input = document.getElementById(`coffeeAmount_${coffee.id}`)
 		const coffeeAmount = parseInt((input as HTMLInputElement).value)
 		const _coffee = {
-			coffeeId: coffee.id,
+			id: coffee.id,
+			name: coffee.name,
+			price: coffee.price,
 			units: coffeeAmount,
 		}
 
-		let id = coffeeList.findIndex((c) => c.coffeeId == _coffee.coffeeId)
+		let id = coffeeList.findIndex((c) => c.id == _coffee.id)
 		console.log(id)
 
 		if (id != -1) {
@@ -98,13 +100,11 @@ export function CoffeeList() {
 				{dataCoffeeList.map((coffee) => (
 					<Coffee key={coffee.id}>
 						<Image
-							src={`src/assets/coffees/${formatString(
-								coffee.name
-							)}.png`}
+							src={`src/assets/coffees/${formatString(coffee.name)}.png`}
 							alt="coffee image"
 						/>
 						<TypeContainer>
-							{coffee.type.map((type, index) => (
+							{coffee.type?.map((type, index) => (
 								<Type key={index}>{type}</Type>
 							))}
 						</TypeContainer>
@@ -118,9 +118,7 @@ export function CoffeeList() {
 								<CartAmount>
 									<button
 										className="buttonAmount"
-										onClick={(e) =>
-											decreaseAmount(coffee.id)
-										}
+										onClick={(e) => decreaseAmount(coffee.id)}
 									>
 										<Minus size={14} weight="bold" />
 									</button>
@@ -136,9 +134,7 @@ export function CoffeeList() {
 
 									<button
 										className="buttonAmount"
-										onClick={(e) =>
-											increaseAmount(coffee.id)
-										}
+										onClick={(e) => increaseAmount(coffee.id)}
 									>
 										<Plus size={14} weight="bold" />
 									</button>

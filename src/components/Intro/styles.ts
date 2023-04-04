@@ -45,8 +45,7 @@ export const Container = styled.div`
 
 				.shoppingCart {
 					padding: 8px;
-					background-color: ${(props) =>
-						props.theme.colors.yellow_dark};
+					background-color: ${(props) => props.theme.colors.yellow_dark};
 				}
 
 				.timer {
@@ -56,7 +55,7 @@ export const Container = styled.div`
 
 				.box {
 					padding: 8px;
-					background-color: ${(props) => props.theme.colors.text};
+					background-color: ${(props) => props.theme.colors.base_subtitle};
 				}
 
 				.coffee {

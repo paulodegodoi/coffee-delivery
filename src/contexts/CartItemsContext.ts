@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction, createContext } from "react"
-import { coffee } from "../interfaces/ICoffee"
+import { CoffeeType, ICoffeeList, coffee } from "../interfaces/ICoffee"
 // type CartItemsContextProps = {
 // 	units: number
 // 	setUnits: (units: number) => void
 // }
 
 export interface CartItemsContextProps {
-	coffeeList: coffee[]
-	setCoffeeList: Dispatch<SetStateAction<coffee[]>>
+	coffeeList: ICoffeeList[]
+	setCoffeeList: Dispatch<SetStateAction<ICoffeeList[]>>
 }
 ;[]
 
@@ -17,7 +17,7 @@ export interface CartItemsContextProps {
 // }
 
 export const initialValue = {
-	coffeeList: [{ coffeeId: 0, units: 0 }],
+	coffeeList: [{ id: 1, type: [], name: "teste", description: "", price: 0, units: 0 }],
 	setCoffeeList: () => [],
 }
 
