@@ -6,18 +6,47 @@ import {
 	PaymentMethod,
 	PaymentMethodButton,
 	ConfirmOrder,
+	ConfirmOrderContainer,
+	TotalAmountContainer,
+	ConfirmOrderButton,
 } from "./styles"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import CartItemsContext from "../../contexts/CartItemsContext"
 import { CoffeeItem } from "../../components/Coffee"
+import { CoffeeItemCheckout } from "../../components/CoffeeItemCheckout"
 
 export function Checkout() {
 	const { coffeeList, setCoffeeList } = useContext(CartItemsContext)
 	const [btnActive, setBtnActive] = useState("")
+	const [itemsAmount, setItemsAmount] = useState("")
+	const [totalAmount, setTotalAmount] = useState("")
+
+	const deliveryAmount = 5.49
+	let forItemsAmount = 0
+	coffeeList.forEach((c) => (forItemsAmount += c.price * c.units))
+
+	let forTotalAmount = 0
 
 	function handleClick(e: EventTarget) {
 		setBtnActive(e.value)
 	}
+
+	useEffect(() => {
+		setItemsAmount(forItemsAmount.toFixed(2))
+		setTotalAmount((forItemsAmount + deliveryAmount).toFixed(2))
+	}, [coffeeList])
+
+	//setItemsAmount(forItemsAmount.toFixed(2))
+	//setTotalAmount((forItemsAmount + deliveryAmount).toFixed(2))
+
+	function handleDeleteItem(coffeeId: number) {
+		//let removeIndex = coffeeList.map((item) => item.id).indexOf(coffeeId)
+		//console.log(removeIndex)
+		setCoffeeList(coffeeList.filter((item) => item.id != coffeeId))
+		//console.log(te)
+		//if (removeIndex != -1) setCoffeeList(coffeeList)
+	}
+
 	return (
 		<>
 			<Container>
@@ -81,14 +110,33 @@ export function Checkout() {
 						</PaymentMethod>
 					</div>
 				</LeftInformation>
-				<div>
+				<ConfirmOrderContainer>
 					<h2>Confirmar Pedido</h2>
 					<ConfirmOrder>
-						{coffeeList.map((c) => (
-							<CoffeeItem key={c.id} coffee={c} />
+						{coffeeList?.map((c) => (
+							<>
+								<CoffeeItemCheckout
+									key={c.id}
+									coffee={c}
+									handleDeleteItem={handleDeleteItem}
+								/>
+								<hr />
+							</>
 						))}
+						<TotalAmountContainer>
+							<p>
+								Total dos itens <span>R$ {itemsAmount}</span>
+							</p>
+							<p>
+								Entrega <span>R$ {deliveryAmount}</span>
+							</p>
+							<h4>
+								Total <span>R$ {totalAmount}</span>
+							</h4>
+						</TotalAmountContainer>
+						<ConfirmOrderButton>Confirmar pedido</ConfirmOrderButton>
 					</ConfirmOrder>
-				</div>
+				</ConfirmOrderContainer>
 			</Container>
 		</>
 	)
