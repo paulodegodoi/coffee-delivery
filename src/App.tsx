@@ -10,7 +10,7 @@ import { ICoffeeList, coffee } from "./interfaces/ICoffee"
 
 function App() {
 	const [coffeeList, setCoffeeList] = useState<ICoffeeList[]>([
-		{ id: 1, name: "Expresso Tradicional", price: 9.9, units: 1 },
+		//		{ id: 1, name: "Expresso Tradicional", price: 9.9, units: 1 },
 	])
 
 	return (

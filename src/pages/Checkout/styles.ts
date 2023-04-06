@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.div`
 	display: flex;
-	justify-content: center;
+	margin-bottom: 3rem;
 	gap: 1rem;
 
 	h2 {
@@ -10,12 +10,16 @@ export const Container = styled.div`
 		font-family: "Baloo 2", cursive;
 		margin-bottom: 10px;
 	}
+
+	@media (max-width: 1200px) {
+		flex-direction: column;
+	}
 `
 
 export const LeftInformation = styled.div`
 	display: flex;
 	flex-direction: column;
-
+	width: 60%;
 	h3 {
 		display: flex;
 		align-items: center;
@@ -124,7 +128,57 @@ export const PaymentMethodButton = styled.button`
 	letter-spacing: 0.5px;
 `
 
-export const ConfirmOrder = styled.div`
+export const ConfirmOrderContainer = styled.div`
 	width: 40%;
-	background: #303030;
+`
+
+export const ConfirmOrder = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 25px;
+	background-color: ${(props) => props.theme.colors.base_card};
+	padding: 1rem 0;
+
+	hr {
+		width: 80%;
+	}
+	@media (max-width: 1200px) {
+		width: 100%;
+	}
+`
+
+export const TotalAmountContainer = styled.div`
+	width: 80%;
+	margin-top: 1rem;
+
+	p,
+	h4 {
+		display: flex;
+		justify-content: space-between;
+		color: ${(props) => props.theme.colors.background};
+		margin-bottom: 1rem;
+	}
+
+	p {
+		font-size: 1rem;
+	}
+
+	h4 {
+		font-size: 1.3rem;
+	}
+`
+
+export const ConfirmOrderButton = styled.button`
+	width: 80%;
+	background-color: ${(props) => props.theme.colors.green};
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1rem;
+	color: ${(props) => props.theme.colors.text};
+	transition: 0.3s;
+	:hover {
+		background-color: ${(props) => props.theme.colors.green_dark};
+		color: ${(props) => props.theme.colors.green_light};
+	}
 `
