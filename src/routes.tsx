@@ -1,16 +1,15 @@
 import { useContext, useState } from "react"
 import { Routes, Route } from "react-router-dom"
-import CartItemsContext from "./contexts/CartItemsContext"
 import { Checkout } from "./pages/Checkout"
 import { Main } from "./pages/Main"
+import { OrderConfirmed } from "./pages/OrderConfirmed"
 
 export default function DefaultRoutes() {
-	//const { units, setUnits } = useContext(CartItemsContext)
-
 	return (
 		<Routes>
 			<Route path="/" element={<Main />} />
 			<Route path="checkout" element={<Checkout />} />
+			<Route path="order-confirmed" element={<OrderConfirmed />} />
 		</Routes>
 	)
 }
