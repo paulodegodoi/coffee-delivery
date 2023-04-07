@@ -15,6 +15,10 @@ export default createGlobalStyle`
     max-width: 1440px;
     margin: auto;
     padding: 0 150px 3rem 150px;
+
+    a {
+      text-decoration: none;
+    }
   }
 
   button {

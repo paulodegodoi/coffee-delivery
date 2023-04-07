@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
+export const Container = styled.form`
 	display: flex;
 	margin-bottom: 3rem;
 	gap: 1rem;
@@ -11,15 +11,24 @@ export const Container = styled.div`
 		margin-bottom: 10px;
 	}
 
-	@media (max-width: 1200px) {
+	.spinner {
+		width: 100px;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	@media (max-width: 1000px) {
 		flex-direction: column;
 	}
 `
 
-export const LeftInformation = styled.div`
+export const DeliveryAndPaymentContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 60%;
+
 	h3 {
 		display: flex;
 		align-items: center;
@@ -39,6 +48,10 @@ export const LeftInformation = styled.div`
 	input,
 	button {
 		transition: 0.5s;
+	}
+
+	@media (max-width: 1000px) {
+		width: 100%;
 	}
 `
 
@@ -93,6 +106,16 @@ export const DeliveryAddress = styled.div`
 	input::placeholder {
 		color: ${(props) => props.theme.colors.base_label};
 	}
+
+	@media (max-width: 800px) {
+		div {
+			flex-direction: column;
+
+			input.ufInput {
+				width: 100%;
+			}
+		}
+	}
 `
 
 export const PaymentMethod = styled.div`
@@ -106,6 +129,14 @@ export const PaymentMethod = styled.div`
 	.buttonContainer {
 		display: flex;
 		gap: 15px;
+	}
+
+	@media (max-width: 800px) {
+		.buttonContainer {
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+		}
 	}
 
 	button.active {
@@ -126,10 +157,23 @@ export const PaymentMethodButton = styled.button`
 	height: 55px;
 	font-weight: bold;
 	letter-spacing: 0.5px;
+
+	@media (max-width: 800px) {
+		width: 50%;
+		padding: 1rem;
+
+		svg {
+			font-size: 1.3rem;
+		}
+	}
 `
 
 export const ConfirmOrderContainer = styled.div`
 	width: 40%;
+
+	@media (max-width: 1000px) {
+		width: 100%;
+	}
 `
 
 export const ConfirmOrder = styled.div`
@@ -143,7 +187,8 @@ export const ConfirmOrder = styled.div`
 	hr {
 		width: 80%;
 	}
-	@media (max-width: 1200px) {
+
+	@media (max-width: 1000px) {
 		width: 100%;
 	}
 `
@@ -176,8 +221,15 @@ export const ConfirmOrderButton = styled.button`
 	font-weight: bold;
 	font-size: 1rem;
 	color: ${(props) => props.theme.colors.text};
+	margin: auto;
 	transition: 0.3s;
-	:hover {
+
+	:disabled {
+		background-color: ${(props) => props.theme.colors.green_dark};
+		color: ${(props) => props.theme.colors.background};
+	}
+
+	:hover:enabled {
 		background-color: ${(props) => props.theme.colors.green_dark};
 		color: ${(props) => props.theme.colors.green_light};
 	}

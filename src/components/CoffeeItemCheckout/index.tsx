@@ -58,14 +58,6 @@ export function CoffeeItemCheckout(coffeeProps: ICoffeeItem) {
 					src={`src/assets/coffees/${formatString(coffee.name)}.png`}
 					alt="coffee image"
 				/>
-				{/* {coffee.type && (
-				<TypeContainer>
-					{coffee.type?.map((type, index) => (
-						<Type key={index}>{type}</Type>
-					))}
-				</TypeContainer>
-			)} */}
-
 				<MidDetails>
 					<Name>{coffee.name}</Name>
 					<ShopContainer>
@@ -78,9 +70,6 @@ export function CoffeeItemCheckout(coffeeProps: ICoffeeItem) {
 								<InputAmount
 									id={`coffeeAmount_${coffee.id}`}
 									value={units}
-									// onChange={(e) =>
-									// 	setUnits(parseInt(e.target.value))
-									// }
 									readOnly
 								/>
 
@@ -103,11 +92,8 @@ export function CoffeeItemCheckout(coffeeProps: ICoffeeItem) {
 						</CartContainer>
 					</ShopContainer>
 				</MidDetails>
-
-				<p>R${coffee.price.toFixed(2)}</p>
 			</Details>
-
-			{/* {coffee.description && <Description>{coffee.description}</Description>} */}
+			<p>R${coffee.price.toFixed(2)}</p>
 		</Coffee>
 	)
 }

@@ -55,14 +55,7 @@ export function CoffeeItem(c: ICoffeeItem) {
 							<Minus size={14} weight="bold" />
 						</button>
 
-						<InputAmount
-							id={`coffeeAmount_${coffee.id}`}
-							value={units}
-							// onChange={(e) =>
-							// 	setUnits(parseInt(e.target.value))
-							// }
-							readOnly
-						/>
+						<InputAmount id={`coffeeAmount_${coffee.id}`} value={units} readOnly />
 
 						<button
 							className="buttonAmount"

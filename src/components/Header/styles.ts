@@ -23,7 +23,6 @@ export const Container = styled.header`
 
 	@media (max-width: 800px) {
 		height: 120px;
-		padding: 1rem 2rem;
 		align-items: center;
 
 		h1 {

@@ -11,13 +11,6 @@ export const Coffee = styled.div`
 	border-radius: 25px;
 	//border-bottom: 2px solid #000;
 	padding: 1.2rem;
-`
-
-export const Details = styled.div`
-	display: flex;
-	align-items: center;
-	width: 100%;
-	gap: 10px;
 	position: relative;
 
 	p {
@@ -27,6 +20,26 @@ export const Details = styled.div`
 		align-self: start;
 		font-size: 1rem;
 		color: #000;
+	}
+
+	@media (max-width: 1000px) {
+		p {
+			top: 1px;
+		}
+	}
+`
+
+export const Details = styled.div`
+	display: flex;
+	align-items: center;
+	width: 100%;
+	gap: 10px;
+	position: relative;
+
+	@media (max-width: 800px) {
+		p {
+			position: relative;
+		}
 	}
 `
 
